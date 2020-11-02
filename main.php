@@ -1,6 +1,5 @@
 <?php
 
-chdir('/Users/yuma/docker_study/webstudy');
 require 'Person.class.php';
 
 
