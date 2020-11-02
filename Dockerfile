@@ -7,6 +7,8 @@ RUN mkdir /hello
 # helloディレクトリにmain.phpをコピー
 COPY main.php /hello
 COPY Person.class.php /hello
+COPY Animal.php /hello
+COPY Dog.php /hello
 
 # 実行コマンド
 # php /hello/main.phpを実行
