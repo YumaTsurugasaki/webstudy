@@ -1,9 +1,15 @@
 <?php
 
 require 'Person.class.php';
+require 'Animal.php';
+require 'Dog.php';
 
 
-function output($name){
+namespace test;
+
+
+function output($name): void
+{
   echo '文字列　：　', $name, PHP_EOL;
   #print '<br>';
   $name = '鈴木';
@@ -25,7 +31,8 @@ function output($name){
   #print '<br>';
 }
 
-function output_array(){
+function output_array(): void
+{
   $family = ['dad', 'mom', 'son', 'daughter'];
   echo 'array　：　', $family, PHP_EOL;
   $family[] = 'puppy';
@@ -43,7 +50,8 @@ function output_array(){
 
 }
 
-function control(){
+function control(): void
+{
   $num = ['2', '10', '1', '4'];
   $family_name = [
     'dad' => 'Bob',
@@ -72,7 +80,8 @@ function control(){
 
 }
 
-function built_in(){
+function built_in(): void
+{
   print("こんにちは");
   echo "こんばんは", PHP_EOL;
   echo strlen("おはようございます"), PHP_EOL;
@@ -81,7 +90,7 @@ function built_in(){
   echo implode(":::::::", array("みかん", "りんご", "スイカ")), PHP_EOL;
 }
 
-function reference_sub(&$ref, $val)
+function reference_sub(&$ref, $val): void
 {
     $ref += 5;
     $val += 10;
@@ -94,7 +103,7 @@ function reference_sub(&$ref, $val)
 
 
 
-
+# クラスメソッド
 $name = '佐々木';
 output($name);
 output_array();
@@ -108,10 +117,31 @@ echo '$a = ', $a, PHP_EOL;
 echo '$b = ', $b, PHP_EOL;
 
 
-
+# インスタンス
 $john = new Person('John Smith', 'male', '19820312');
-echo '名前: ' . $john->name . '<br>';  # publlic
+echo '名前: ' , $john->name , PHP_EOL;  # publlic
 //echo '性別: ' . $john_smith->_gender ;  //エラーになる
-echo '年齢: ' . $john->get_age() . '才<br>';
+#  インスタンスメソッド
+echo '年齢: ' , $john->get_age() , '才', PHP_EOL;
+
+
+$pet = new Animal();
+$pet->setName("たろう");
+echo $pet->printName(), PHP_EOL;
+
+$pet_dog = new Dog();
+$pet_dog->setName("ぽち");
+echo $pet_dog->getName(), "の鳴き声は".$pet_dog->call(), PHP_EOL;
+echo $pet_dog->printName(), PHP_EOL;
+
+# PHPの型
+$string = 'aaa';     //文字列を入れる
+$int = 123;          //整数を入れる
+$array = ['aaa'];
+$foo = True;
+$date = date('Y年m月d日　H時i分s秒');
+
+
+
 
 ?>
