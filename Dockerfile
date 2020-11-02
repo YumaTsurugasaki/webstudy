@@ -6,6 +6,7 @@ FROM php:7.2-apache
 RUN mkdir /hello
 # helloディレクトリにmain.phpをコピー
 COPY main.php /hello
+COPY Person.class.php /hello
 
 # 実行コマンド
 # php /hello/main.phpを実行
